@@ -8,12 +8,13 @@ public class ClickItem : MonoBehaviour
     public Display display;
     public void OnItemClick()
     {
-        Debug.Log("click");
+        //Debug.Log("click");
         GameObject displaySprite = buttonManager.GetDisplaySpriteForIcon(this);
 
         
         displaySprite.SetActive(true);
+        buttonManager.currentItem++;
 
-        
+
     }
 }
