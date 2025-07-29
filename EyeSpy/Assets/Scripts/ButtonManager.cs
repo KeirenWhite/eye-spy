@@ -3,52 +3,38 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using Unity.VisualScripting;
 
 
-/*[System.Serializable]
+[System.Serializable]
 
-public class ButtonDisplayPair
+public class DisplayPair
 {
     public Sprite itemIcon;
-    public Sprite display;
+    public GameObject display;
     public string displayText;
-}*/
+}
 public class ButtonManager : MonoBehaviour
-{
-    /*public Button button1;
-    public Button button2;
-    public Button button3;
-    public Button button4;
-    public Button button5;
-    public Button button6;*/
+{    
+    private List<GameObject> itemSprites;
+    public List<DisplayPair> spriteDisplayPairs;
 
-    public GameObject button1;
-
-    public GameObject display1;
-    public GameObject display2;
-    public GameObject display3;
-    public GameObject display4;
-    public GameObject display5;
-    public GameObject display6;
-
-    public GameObject text1;
-    public GameObject text2;
-    public GameObject text3;
-    public GameObject text4;
-    public GameObject text5;
-    public GameObject text6;
-
-
-    public void OnClick()
+    public GameObject GetDisplaySpriteForIcon(ClickItem icon)
     {
-        /*button1.onClick.AddListener(() =>
+        Sprite clickedSprite = icon.GetComponent<Image>().sprite;
+
+        foreach (var pair in spriteDisplayPairs)
         {
-            display1.SetActive(true);
-            text1.SetActive(true);
-        });*/
+
+            if (pair.itemIcon == clickedSprite)
+            {
+
+                return pair.display;
+            }
+        }
+
+        return null;
     }
-
-
 
 
 

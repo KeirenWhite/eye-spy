@@ -1,18 +1,19 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.UI;
 public class ClickItem : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public ButtonManager buttonManager;
+    public Display display;
+    public void OnItemClick()
     {
-        
-    }
+        Debug.Log("click");
+        GameObject displaySprite = buttonManager.GetDisplaySpriteForIcon(this);
 
-    // Update is called once per frame
-    void Update()
-    {
+        
+        displaySprite.SetActive(true);
+
         
     }
 }
