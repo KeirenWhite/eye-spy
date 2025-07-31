@@ -7,6 +7,7 @@ using TMPro;
 public class Display : MonoBehaviour
 {
     public Button closeButton;
+    public GameObject grayBox;
 
 
     private void Update()
@@ -14,6 +15,7 @@ public class Display : MonoBehaviour
         closeButton.onClick.AddListener(() => 
         {
             Debug.Log("click");
+            grayBox.SetActive(false);
             this.gameObject.SetActive(false);
         });
     }

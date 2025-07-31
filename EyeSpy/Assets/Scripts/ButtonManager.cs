@@ -12,6 +12,7 @@ public class DisplayPair
 {
     public Sprite[] itemIcon;
     public GameObject[] display;
+    public GameObject[] checklist;
     public Sprite[] correctItems;
     public string displayText;
 }
@@ -26,10 +27,11 @@ public class ButtonManager : MonoBehaviour
     {
         Sprite clickedSprite = icon.GetComponent<Image>().sprite;
 
+        
         foreach (var pair in spriteDisplayPairs)
         {
-
-            if (pair.itemIcon[currentItem] == clickedSprite && clickedSprite == pair.correctItems[currentItem])
+            
+            if (clickedSprite == pair.correctItems[currentItem])
             {
                 return pair.display[currentItem];
             }
@@ -40,6 +42,25 @@ public class ButtonManager : MonoBehaviour
             else
             {
                 lives.currentLives--;
+            }
+            
+            
+            
+        }
+
+        return null;
+    }
+
+    public GameObject GetChecklist(ClickItem icon)
+    {
+        Sprite clickedSprite = icon.GetComponent<Image>().sprite;
+
+        foreach (var pair in spriteDisplayPairs)
+        {
+
+            if (pair.itemIcon[currentItem] == clickedSprite && clickedSprite == pair.correctItems[currentItem])
+            {
+                return pair.checklist[currentItem];
             }
         }
 
