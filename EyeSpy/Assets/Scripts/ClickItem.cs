@@ -5,6 +5,7 @@ using UnityEngine.UI;
 public class ClickItem : MonoBehaviour
 {
     public ButtonManager buttonManager;
+    public ItemCounter itemCounter;
     public Display display;
     public GameObject grayBox;
     public void OnItemClick()
@@ -15,8 +16,9 @@ public class ClickItem : MonoBehaviour
         
         displaySprite.SetActive(true);
         grayBox.SetActive(true);
-        checklist.SetActive(true);
-        buttonManager.currentItem++;
+        itemCounter.itemCounter--;
+        //checklist.SetActive(true);
+        //buttonManager.currentItem++;
 
 
     }

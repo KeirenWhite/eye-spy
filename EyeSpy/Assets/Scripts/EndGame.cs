@@ -27,11 +27,11 @@ public class EndGame : MonoBehaviour
             restartButton.SetActive(true);
         }
 
-        if (lives.currentLives <= 0)
+       /* if (lives.currentLives <= 0)
         {
             loseEndDisplay.SetActive(true);
             bottomMenu.SetActive(false);
             restartButton.SetActive(true);
-        }
+        }*/
     }
 }

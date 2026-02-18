@@ -27,27 +27,19 @@ public class ButtonManager : MonoBehaviour
     {
         Sprite clickedSprite = icon.GetComponent<Image>().sprite;
 
-        
         foreach (var pair in spriteDisplayPairs)
         {
-            
-            if (clickedSprite == pair.correctItems[currentItem])
+            for (int i = 0; i < pair.correctItems.Length; i++)
             {
-                return pair.display[currentItem];
+                if (clickedSprite == pair.correctItems[i])
+                {
+                    icon.gameObject.SetActive(false);
+                    return pair.display[i];
+                }
             }
-            else if (pair.itemIcon[currentItem] != clickedSprite)
-            {
-                lives.currentLives--;
-            }
-            else
-            {
-                lives.currentLives--;
-            }
-            
-            
-            
         }
 
+        
         return null;
     }
 
@@ -57,10 +49,12 @@ public class ButtonManager : MonoBehaviour
 
         foreach (var pair in spriteDisplayPairs)
         {
-
-            if (pair.itemIcon[currentItem] == clickedSprite && clickedSprite == pair.correctItems[currentItem])
+            for (int i = 0; i < pair.itemIcon.Length; i++)
             {
-                return pair.checklist[currentItem];
+                if (clickedSprite == pair.itemIcon[i] && clickedSprite == pair.correctItems[i])
+                {
+                    return pair.checklist[i];
+                }
             }
         }
 
