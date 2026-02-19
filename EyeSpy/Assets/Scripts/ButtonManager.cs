@@ -22,6 +22,7 @@ public class ButtonManager : MonoBehaviour
     private List<GameObject> itemSprites;
     public List<DisplayPair> spriteDisplayPairs;
     public int currentItem = 0;
+    //public ItemCounter itemCounter;
 
     public GameObject GetDisplaySpriteForIcon(ClickItem icon)
     {
@@ -33,6 +34,7 @@ public class ButtonManager : MonoBehaviour
             {
                 if (clickedSprite == pair.correctItems[i])
                 {
+                    //itemCounter.itemCounter--;
                     icon.gameObject.SetActive(false);
                     return pair.display[i];
                 }

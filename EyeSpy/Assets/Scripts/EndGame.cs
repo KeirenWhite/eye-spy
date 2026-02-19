@@ -4,8 +4,8 @@ using UnityEngine;
 using UnityEngine.UI;
 public class EndGame : MonoBehaviour
 {
-    public Lives lives;
-    public ButtonManager buttonManager;
+    public ItemCounter itemCounter;
+    public BabyScript babyScript;
 
     public GameObject winEndDisplay;
     public GameObject loseEndDisplay;
@@ -20,11 +20,12 @@ public class EndGame : MonoBehaviour
 
     public void EndTheGame()
     {
-        if (buttonManager.currentItem >= 6)
+        if (itemCounter.itemCounter == 0 && babyScript.backCondition == true)
         {
-            winEndDisplay.SetActive(true);
-            bottomMenu.SetActive(false);
-            restartButton.SetActive(true);
+            Debug.Log("W");
+            //winEndDisplay.SetActive(true);
+            //bottomMenu.SetActive(false);
+            //restartButton.SetActive(true);
         }
 
        /* if (lives.currentLives <= 0)
